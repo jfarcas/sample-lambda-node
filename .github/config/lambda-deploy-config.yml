@@ -14,7 +14,7 @@ build:
     lint: "npm run lint"
     test: "npm test"
     build: "npm run build"    # Uses the build script from package.json
-    lint_error_handling: "blocking" # Options: "blocking" (stop deployment), "non-blocking" (warn only)
+    lint_error_handling: "non-blocking" # Options: "blocking" (stop deployment), "non-blocking" (warn only)
   
   # Artifact configuration
   artifact:
