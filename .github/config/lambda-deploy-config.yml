@@ -4,9 +4,9 @@
 project:
   name: "lambda-test-nodejs"
   description: "Simple Node.js Lambda function for testing the deploy action"
-  runtime: "nodejs"
+  runtime: "node"
   versions:
-    nodejs: "18"
+    nodejs: "22"
 
 build:
   commands:
