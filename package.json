@@ -7,12 +7,10 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:build": "node test-build.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "local-test": "node test-local.js",
     "build": "npm ci --production && npm run zip",
-    "zip": "zip -rq lambda-function.zip index.js node_modules/ package.json package-lock.json -x '*.git*' '*.test.js' 'test-local.js' 'test-build.js' 'jest.config.js' 'eslint.config.js' '.eslintrc.js' 'logs/*' '.idea/*'",
+    "zip": "zip -rq lambda-function.zip index.js node_modules/ package.json package-lock.json -x '*.git*' '*.test.js'",
     "clean": "rm -f lambda-function.zip",
     "prebuild": "npm run clean",
     "postbuild": "echo 'Build completed: lambda-function.zip created'"
@@ -39,9 +37,7 @@
     "testEnvironment": "node",
     "collectCoverageFrom": [
       "*.js",
-      "!test-local.js",
-      "!test-build.js",
-      "!jest.config.js"
+      "!eslint.config.js"
     ]
   },
   "engines": {
