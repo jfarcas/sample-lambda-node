@@ -16,14 +16,6 @@ build:
     lint: "npm run lint"        # Run linting (blocks deployment on errors)
     test: "npm test"            # Run tests (blocks deployment on failures)
     build: "npm run build"      # Build the project
-
-# Quality checks configuration - enable/disable quality checks
-quality_checks:
-  enabled: true
-  lint: true               # Enable linting (uses build.commands.lint if specified)
-  test: true               # Enable testing (uses build.commands.test if specified)
-  security: true           # Run security scanning
-
   
   # Artifact configuration
   artifact:
@@ -41,6 +33,13 @@ quality_checks:
       - "logs/"
       - ".idea/"
       - ".git/"
+
+# Quality checks configuration - enable/disable quality checks
+quality_checks:
+  enabled: true
+  lint: true               # Enable linting (uses build.commands.lint if specified)
+  test: true               # Enable testing (uses build.commands.test if specified)
+  security: true           # Run security scanning
 
 environments:
   dev:
