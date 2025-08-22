@@ -49,7 +49,7 @@ environments:
     deployment:
       versioning: false
       run_tests: true
-      notifications: false
+      notifications: true
   
   pre:
     trigger_branches: ["main"]
