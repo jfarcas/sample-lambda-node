@@ -6,18 +6,18 @@ project:
   description: "Simple Node.js Lambda function for testing the deploy action"
   runtime: "node"
   versions:
-    nodejs: "22"
+    node: "18"
 
 build:
   commands:
     install: "npm ci"
     lint: "npm run lint"
     test: "npm test"
-    build: "auto"    # automatic packaging
+    build: "npm run build"    # Uses the build script from package.json
   
   # Artifact configuration
   artifact:
-    path: "lambda-deployment.zip"
+    path: "lambda-function.zip"    # Matches the zip script output
     exclude_patterns:
       - "*.md"
       - "*.test.js"
@@ -26,17 +26,38 @@ build:
       - "coverage/"
       - ".nyc_output/"
       - "jest.config.js"
+      - "eslint.config.js"
+      - ".eslintrc.js"
+      - "logs/"
+      - ".idea/"
+      - ".git/"
 
 environments:
   dev:
     trigger_branches: ["main", "feature/**"]
     aws:
-      region: "eu-west-1"
       auth_type: "access_key"
     deployment:
       versioning: false
       run_tests: true
       notifications: false
+  
+  pre:
+    trigger_branches: ["main"]
+    aws:
+      auth_type: "access_key"
+    deployment:
+      versioning: true
+      run_tests: true
+      notifications: false
+  
+  prod:
+    aws:
+      auth_type: "access_key"
+    deployment:
+      versioning: true
+      run_tests: true
+      notifications: true
 
 # Deployment configuration
 deployment:

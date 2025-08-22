@@ -132,3 +132,8 @@ dist
 
 .idea
 .claude
+
+# Lambda deployment artifacts
+lambda-function.zip
+lambda-deployment.zip
+*.zip
