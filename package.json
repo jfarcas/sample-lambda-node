@@ -1,6 +1,6 @@
 {
   "name": "lambda-test-nodejs",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Simple Node.js Lambda function for testing the deploy action",
   "main": "index.js",
   "scripts": {
